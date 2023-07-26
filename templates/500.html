@@ -1,0 +1,44 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+
+<style>
+  section {
+    height: 63vh;
+    padding: 10rem;
+  }
+  h2 {
+    text-transform: capitalize;
+    font-size: 30px;
+    line-height: 50px;
+    color: #222222;
+  }
+  span {
+    font-size: 30px;
+    font-weight: 900;
+    color: red;
+  }
+
+  a {
+    font-size: 18px;
+    text-decoration: underline;
+    color: blue;
+    text-transform: capitalize;
+  }
+</style>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col mx-auto text-center">
+        <span>500</span>
+        <h2>internal server error!</h2>
+        <a href="{% url 'client:index' %}">home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,414 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  .component_1 {
+    height: 500px;
+    width: 100%;
+    background-image: url('{% static "images/team4.svg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .component_2 {
+    height: 500px;
+    width: 100%;
+    background-image: url('{% static "images/team_component.svg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .team_about_img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .logo_images {
+    height: 70px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .prottolk_logo {
+    height: 125px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .register_icons_container {
+    background: linear-gradient(#fb3038, #db7074);
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+  }
+
+  .register_icon {
+    font-size: 25px;
+    color: white;
+  }
+
+  .register_titles {
+    font-size: 18px;
+    margin-bottom: 0px;
+    display: inline-block;
+  }
+
+  .deco_image {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* staff style  */
+  .staff_icons {
+    color: var(--primary-color) !important;
+    font-size: 30px;
+  }
+
+  .staff_title {
+    font-size: 20px;
+  }
+
+  .secondary_subs {
+    font-size: 14px;
+  }
+
+  .about_workers {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('{% static "images/solar_svg.svg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Mission and Values  */
+  .values_container {
+    background: linear-gradient(#fb3038, #db7074);
+    border-radius: 12px;
+  }
+
+  @media screen and (max-width: 576px) {
+    .nav_logo {
+      width: 120px;
+    }
+
+    .carousel-item {
+      height: 50vh !important;
+    }
+
+    .hero_title {
+      font-size: 30px;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    .carousel_sub {
+      font-size: 15px;
+    }
+
+    .titles {
+      font-size: 28px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ======= Header Image  ======= -->
+<div class="container mt-5 d-none d-lg-block">
+  <div class="d-flex p-3">
+    <div class="component_1"></div>
+    <div class="component_2 p-5">
+      <div class="d-flex justify-content-end">
+        <h3 class="titles my-3 text-white text-nowrap">
+          Prottolk Engineering (Pty) Ltd
+        </h3>
+      </div>
+      <div class="d-flex justify-content-end">
+        <p class="text-light" style="width: 80%">
+          Prottolk is a total turnkey solution supplier aimed at improving the
+          efficiency and safety of industrial plants through plant automation.
+        </p>
+      </div>
+      <div class="d-flex justify-content-end">
+        <a href="{% url 'client:contact' %}">
+          <button class="btn btn-light shadow">Contact Us</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= Small Screen Header  ======= -->
+<div class="container mt-5 d-sm-block d-lg-none">
+  <img
+    src="{% static '/images/team.jpeg' %}"
+    alt="prottolk team"
+    class="team_about_img"
+  />
+</div>
+
+<!-- ======= About Comonay  ======= -->
+<div class="container my-5">
+  <h6 class="sub_titles">ABOUT OUR COMPANY</h6>
+  <h3 class="titles my-3">
+    <span class="text_deco">Prottolk</span> : Empowering Industrial Efficiency
+    and Safety through Turnkey Automation Solutions.
+  </h3>
+
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <p>
+        Prottolk is a total turnkey solution supplier aimed at improving the
+        efficiency and safety of industrial plants through plant automation. The
+        company is able to supply, install, and commission projects.
+      </p>
+      <p>
+        The company offers after sales support for new and existing automation
+        installations, through preventative maintenance, specialized customer
+        training and technical support for Variable Speed Drives (VSD’s),
+        Programmable Logic Circuits (PLC’s), Solar Inverters and Low Voltage
+        (LV) and Medium Voltage (MV) Switchgears.
+      </p>
+      <p>
+        Using valuable experience gained in Service engineering, Sales, and
+        Product Management, Prottolk can provide technical and commercial
+        solution-based assistance in the Mining, Power Generation, Solar Energy,
+        FMCG, and Water Industries.
+      </p>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="row">
+        <div class="col p-3 d-flex align-items-center">
+          <img
+            src="{% static '/images/prottolk.png' %}"
+            alt="prottolk logo"
+            class="prottolk_logo"
+          />
+        </div>
+        <div class="col p-3 d-flex align-items-center">
+          <img
+            src="{% static '/images/abb-logo.jpg' %}"
+            alt="prottolk partners"
+            class="logo_images"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= Mission and Vision  ======= -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-6 p-3">
+      <h3 class="titles">Our Mission</h3>
+      <p>
+        At Prottolk, our mission is to excel in both domestic and international
+        markets by continuously expanding our capabilities throughout the value
+        chain. From concept to commissioning, we strive to deliver exceptional
+        results in contracts we undertake.
+      </p>
+      <p>
+        We are committed to upholding the highest standards of quality, safety,
+        and environmental responsibility while ensuring cost-effectiveness and
+        timely delivery.
+      </p>
+      <p>
+        By building a team of professionals with diverse expertise in project
+        and construction management, design, engineering, finance, and
+        economics, we are poised to seize opportunities in booming local and
+        international markets.
+      </p>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <div class="p-3 values_container">
+        <h3 class="titles text-white">Our Values</h3>
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-white"></i>
+          </div>
+          <div class="col">
+            <p class="text-light">
+              Commitment to Quality: Striving for excellence by upholding
+              stringent standards in all aspects of our work.
+            </p>
+          </div>
+        </div>
+        <!-- end item  -->
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-white"></i>
+          </div>
+          <div class="col">
+            <p class="text-light">
+              Safety and Environment: Prioritizing the well-being of our
+              stakeholders and implementing sustainable practices for a greener
+              future.
+            </p>
+          </div>
+        </div>
+        <!-- end item  -->
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-white"></i>
+          </div>
+          <div class="col">
+            <p class="text-light">
+              Cost Economics: Optimizing project costs while maintaining the
+              highest level of quality, ensuring maximum value for our clients.
+            </p>
+          </div>
+        </div>
+        <!-- end item  -->
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-white"></i>
+          </div>
+          <div class="col">
+            <p class="text-light">
+              Timely Delivery: Honoring our commitments by completing projects
+              on schedule, enabling our clients to achieve their goals promptly.
+            </p>
+          </div>
+        </div>
+        <!-- end item  -->
+        <div class="row">
+          <div class="col-1">
+            <i class="bi bi-check-circle-fill text-white"></i>
+          </div>
+          <div class="col">
+            <p class="text-light">
+              Collaboration and Alliances: Actively seeking and nurturing
+              partnerships to leverage collective expertise and expand our
+              capabilities for mutual growth.
+            </p>
+          </div>
+        </div>
+        <!-- end item  -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= Staff Counts  ======= -->
+<div class="about_workers my-5 py-5"></div>
+
+<!-- ======= Business Registrations  ======= -->
+<div class="container my-5">
+  <div class="text-center">
+    <h3 class="titles mb-5">
+      Company Registrations
+      <span class="text_deco">& Certificates</span>
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-3 col-md-5">
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-paperclip register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">Prottolk Engineering (Pty) Ltd</h4>
+          <p class="text-secondary secondary_subs mb-0">Registered Name</p>
+        </div>
+      </div>
+      <!-- end item  -->
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-paperclip register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">2014/062910/07</h4>
+          <p class="text-secondary secondary_subs mb-0">Registered Number</p>
+        </div>
+      </div>
+      <!-- end item  -->
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-card-checklist register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">9583188173</h4>
+          <p class="text-secondary secondary_subs mb-0">SARS Tax Number</p>
+        </div>
+      </div>
+      <!-- end item  -->
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-bootstrap register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">BBBEE: Level 1</h4>
+          <p class="text-secondary secondary_subs mb-0">BBBEE</p>
+        </div>
+      </div>
+      <!-- end item  -->
+    </div>
+    <div class="col-12 mb-3 col-md-2">
+      <img
+        src="{% static '/images/patternpad.svg' %}"
+        alt="prottolk pattern"
+        style="height: 100%; width: 100%; border-radius: 12px"
+      />
+    </div>
+    <div class="col-12 mb-3 col-md-5">
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-check-circle register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">VAT No: 4260266749</h4>
+          <p class="text-secondary secondary_subs mb-0">VAT No</p>
+        </div>
+      </div>
+      <!-- end item  -->
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-c-square register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">4EP PE</h4>
+          <p class="text-secondary secondary_subs mb-0">CIDB</p>
+        </div>
+      </div>
+      <!-- end item  -->
+      <div class="d-flex p-3 shadow shadow-sm mb-3" style="border-radius: 12px">
+        <div class="register_icons_container">
+          <i class="bi bi-journal-check register_icon"></i>
+        </div>
+        <div>
+          <h4 class="register_titles">CRS Number: 10060187</h4>
+          <p class="text-secondary secondary_subs mb-0">cidb: 6EP EB, 3ME</p>
+        </div>
+      </div>
+      <!-- end item  -->
+    </div>
+  </div>
+</div>
+
+
+
+<!-- divider  -->
+{% endblock %}

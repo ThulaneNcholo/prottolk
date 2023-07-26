@@ -1,0 +1,41 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  
+</style>
+
+<!-- ======= Wave Component  ======= -->
+<div>
+  <img
+    class="d-none d-md-block"
+    src="{% static '/images/wave.svg' %}"
+    alt=""
+    style="width: 100%; height: 400px; object-fit: cover"
+  />
+
+  <img
+    class="d-block d-md-none"
+    src="{% static '/images/wave.svg' %}"
+    alt=""
+    style="width: 100%; height: 120px; object-fit: cover"
+  />
+</div>
+
+<!-- ======= Contact Component  ======= -->
+{% include 'partials/contact.html' %}
+
+<!-- divider  -->
+{% endblock %}

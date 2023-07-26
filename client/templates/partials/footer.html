@@ -1,0 +1,71 @@
+{% load static %}
+
+<style>
+  /* Footer  */
+  .footer_logo {
+    width: 100px;
+  }
+</style>
+
+<!-- ======= Footer ======= -->
+<footer class="py-3 bg-black">
+  <center>
+    <img
+      src="{% static '/images/p-logo.png' %}"
+      alt=""
+      class="footer_logo mt-3"
+    />
+  </center>
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item">
+      <a href="{% url 'client:index' %}" class="nav-link px-2 text-white"
+        >Home</a
+      >
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'client:about' %}" class="nav-link px-2 text-white"
+        >About</a
+      >
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'client:services' %}" class="nav-link px-2 text-white"
+        >Services</a
+      >
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'client:gallery'%}" class="nav-link px-2 text-white"
+        >Gallery</a
+      >
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'client:contact' %}" class="nav-link px-2 text-white"
+        >Contact</a
+      >
+    </li>
+  </ul>
+  <p class="text-center text-white">
+    © <span id="Year"></span>
+    <span class="text_deco">Prottolk</span> Engineering (Pty) Ltd
+  </p>
+  <ul class="nav justify-content-center list-unstyled d-flex pb-5">
+    <li class="ms-3">
+      <a href="https://www.facebook.com/Prottolk-Pty-ltd-103636964597567/">
+        <i class="bi bi-facebook text-white nav_socials"></i>
+      </a>
+    </li>
+    <li class="ms-3">
+      <a
+        href="https://www.linkedin.com/company/prottolk-investments/"
+        target="_blank"
+      >
+        <i class="bi bi-linkedin text-white nav_socials"></i>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<script>
+  const d = new Date();
+  let year = d.getFullYear();
+  document.getElementById("Year").innerHTML = year;
+</script>

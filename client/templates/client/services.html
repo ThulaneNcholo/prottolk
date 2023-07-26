@@ -1,0 +1,237 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  /* Certificate  */
+  .certificate_container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('{% static "images/server_banner_rotate.jpg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .certificat_icon {
+    font-size: 35px;
+  }
+
+  .certificat_heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
+  .certificate_p {
+    font-size: 15px;
+  }
+
+  .service_card {
+    border-radius: 12px;
+    height: 400px;
+  }
+
+  .active_service_card {
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    height: 400px;
+  }
+
+  .service_icon {
+    font-size: 40px;
+    color: var(--primary-color);
+  }
+
+  .service_heading {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .service_title {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .service_title_border {
+    height: 2px;
+    width: 10%;
+    background-color: var(--primary-color);
+  }
+
+  /* Automation  */
+  .automation_card {
+    border-radius: 12px;
+  }
+
+  .automation_image {
+    height: 400px;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 576px) {
+    .nav_logo {
+      width: 120px;
+    }
+
+    .carousel-item {
+      height: 50vh !important;
+    }
+
+    .hero_title {
+      font-size: 30px;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    .carousel_sub {
+      font-size: 15px;
+    }
+
+    .titles {
+      font-size: 28px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ======= Service Heading ======= -->
+<div class="container mt-5">
+  <div class="text-center service_heading">
+    <h6 class="sub_titles">OUR SERVICES</h6>
+    <h3 class="titles my-3">
+      High Performance Services
+      <span class="text_deco">For Multiple Industries</span>
+    </h3>
+  </div>
+</div>
+
+<!-- ======= Services ======= -->
+<div class="container mt-5">
+  <div class="row">
+    {% for data in services %}
+    <!-- divider  -->
+    {% if data.active == 'Yes' %}
+    <div class="col-12 col-md-6 col-lg-4 mb-5">
+      <div class="shadow p-4 active_service_card">
+        <i class="bi bi-gear-fill service_icon mb-5 text-white"></i>
+        <h4 class="service_title fw-bold mt-2 text-white">{{data.title}}</h4>
+        <div class="service_title_border mb-4 bg-white"></div>
+        <p class="text-light">{{data.description}}</p>
+        <a href="{% url 'client:service-details' data.id %}">
+          <button class="btn btn-light" style="border-radius: 12px">
+            read more
+          </button>
+        </a>
+      </div>
+    </div>
+    {% elif data.active == 'HeroComponent' %}
+    <!-- divider  -->
+    {% else %}
+    <div class="col-12 col-md-6 col-lg-4 mb-5">
+      <div class="service_card shadow p-4">
+        <i class="bi bi-gear-fill service_icon mb-5"></i>
+        <h4 class="service_title fw-bold mt-2">{{data.title}}</h4>
+        <div class="service_title_border mb-4"></div>
+        <p class="text-secondary">{{data.description}}</p>
+        <a href="{% url 'client:service-details' data.id %}">
+          <button class="btn carousel_btn_more">read more</button>
+        </a>
+      </div>
+    </div>
+    {% endif%}
+    <!-- divider  -->
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ======= Certifications ======= -->
+<div class="my-5">
+  <div
+    class="certificate_container d-flex align-items-center d-flex justify-content-center py-5"
+  >
+    <div>
+      <center>
+        <h3 class="titles text-white fw-bold mb-5">Certification.</h3>
+      </center>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3 mb-5">
+            <div>
+              <center>
+                <i
+                  class="bi bi-c-circle-fill p-3 bg-light text-danger rounded-circle certificat_icon"
+                ></i>
+                <h6 class="text-white certificat_heading">License</h6>
+                <p class="text-white mb-0 certificate_p">
+                  Electrical Contractors Association (ECA) – Wireman's license
+                </p>
+              </center>
+            </div>
+          </div>
+          <!-- end service item  -->
+          <div class="col-12 col-md-3 mb-5">
+            <div>
+              <center>
+                <i
+                  class="bi bi-person-workspace p-3 bg-light text-danger rounded-circle certificat_icon"
+                ></i>
+                <h6 class="text-white certificat_heading">VSD Training</h6>
+                <p class="text-white mb-0 certificate_p">
+                  ABB, Danfoss, Rockwell, Siemens, Mitsubishi, WEG Expert Level
+                  VSD Training
+                </p>
+              </center>
+            </div>
+          </div>
+          <!-- end service item  -->
+          <div class="col-12 col-md-3 mb-5">
+            <div>
+              <center>
+                <i
+                  class="bi bi-c-circle-fill p-3 bg-light text-danger rounded-circle certificat_icon"
+                ></i>
+                <h6 class="text-white certificat_heading">Certification</h6>
+                <p class="text-white mb-0 certificate_p">
+                  Profibus Engineers Certification
+                </p>
+              </center>
+            </div>
+          </div>
+          <!-- end service item  -->
+          <div class="col-12 col-md-3 mb-5">
+            <div>
+              <center>
+                <i
+                  class="bi bi-person-workspace p-3 bg-light text-danger rounded-circle certificat_icon"
+                ></i>
+                <h6 class="text-white certificat_heading">PLC Training</h6>
+                <p class="text-white mb-0 certificate_p">
+                  Expert Level PLC Training
+                </p>
+              </center>
+            </div>
+          </div>
+          <!-- end service item  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- divider  -->
+{% endblock %}

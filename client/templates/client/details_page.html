@@ -1,0 +1,79 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  .back_cross {
+    color: var(--primary-color);
+    font-size: 30px;
+  }
+
+  .service_details_image {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .service_detail_title {
+    font-weight: 700;
+  }
+
+  .heading_deco {
+    background-color: var(--primary-color);
+    height: 5px;
+    width: 30%;
+  }
+
+  @media screen and (max-width: 576px) {
+    .service_details_image {
+      height: 300px;
+    }
+  }
+</style>
+
+<div class="container mb-5" style="margin-top: 100px">
+  <div class="row mb-5">
+    <div class="col">
+      <h3 class="service_detail_title mb-0">{{service.title}}</h3>
+      <div class="heading_deco mt-1"></div>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+      <i class="bi bi-x-circle-fill back_cross" onclick="history.back()"></i>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 mb-4 order-last order-md-first">
+      <div>
+        {% if service.detailed_description %}
+        <p>{{service.detailed_description|safe}}</p>
+        {% else %}
+        <p>{{service.description}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mb-4 order-first order-md-last">
+      <div>
+        <img
+          src="{{service.image.url}}"
+          alt=""
+          class="service_details_image mb-4"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- divider  -->
+{% endblock %}

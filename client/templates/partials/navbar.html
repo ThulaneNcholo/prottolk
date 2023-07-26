@@ -1,0 +1,198 @@
+{% load static %}
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  /* navbar style  */
+  .nav_logo {
+    width: 170px;
+  }
+
+  .nav_socials {
+    font-size: 20px;
+  }
+
+  .offcanvas_icons {
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    font-size: 22px;
+    color: white;
+    margin-right: 15px;
+  }
+
+  .menu_icon {
+    font-size: 25px !important;
+    color: white;
+  }
+
+  .btn_menu {
+    background-color: var(--primary-color);
+  }
+
+  .canvas_socials {
+    color: var(--primary-color);
+    font-size: 22px;
+  }
+</style>
+
+<!-- ======= Navbar  ======= -->
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-md-3 shadow"
+>
+  <div class="container-fluid">
+    <a href="{% url 'client:index' %}" aria-label="prottolk logo">
+      <img src="{% static '/images/logos_lg.png' %}" alt="" class="nav_logo" />
+    </a>
+    <button
+      class="btn btn_menu navbar-toggler py-2"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample"
+    >
+      <i class="bi bi-list menu_icon"></i>
+    </button>
+
+    <!-- offcanvas component  -->
+    <div
+      class="offcanvas offcanvas-start d-sm-block d-lg-none"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Prottolk</h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <a href="{% url 'client:index' %}">
+          <div class="row mb-4">
+            <div class="col-2">
+              <i class="bi bi-house offcanvas_icons p-2"></i>
+            </div>
+            <div class="col d-flex align-items-center">
+              <p class="mb-0">Home</p>
+            </div>
+          </div>
+        </a>
+        <!-- end item  -->
+        <a href="{% url 'client:about' %}">
+          <div class="row mb-4">
+            <div class="col-2">
+              <i class="bi bi-buildings offcanvas_icons p-2"></i>
+            </div>
+            <div class="col d-flex align-items-center">
+              <p class="mb-0">About Us</p>
+            </div>
+          </div>
+        </a>
+        <!-- end item  -->
+        <a href="{% url 'client:services' %}">
+          <div class="row mb-4">
+            <div class="col-2">
+              <i class="bi bi-gear offcanvas_icons p-2"></i>
+            </div>
+            <div class="col d-flex align-items-center">
+              <p class="mb-0">Services</p>
+            </div>
+          </div>
+        </a>
+        <!-- end item  -->
+        <a href="{% url 'client:gallery' %}">
+          <div class="row mb-4">
+            <div class="col-2">
+              <i class="bi bi-image offcanvas_icons p-2"></i>
+            </div>
+            <div class="col d-flex align-items-center">
+              <p class="mb-0">Gallery</p>
+            </div>
+          </div>
+        </a>
+        <!-- end item  -->
+        <a href="{% url 'client:contact' %}">
+          <div class="row mb-4">
+            <div class="col-2">
+              <i class="bi bi-person-lines-fill offcanvas_icons p-2"></i>
+            </div>
+            <div class="col d-flex align-items-center">
+              <p class="mb-0">Contact</p>
+            </div>
+          </div>
+        </a>
+        <!-- end item  -->
+
+        <center>
+          <img
+            src="{% static '/images/prottolk.png' %}"
+            alt="prottolk logo"
+            class="mt-5 mb-3"
+            style="width: 37%"
+          />
+        </center>
+
+        <ul class="nav justify-content-center list-unstyled d-flex pb-5">
+          <li class="ms-3">
+            <a
+              href="https://www.facebook.com/Prottolk-Pty-ltd-103636964597567/"
+            >
+              <i class="bi bi-facebook canvas_socials nav_socials"></i>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a
+              href="https://www.linkedin.com/company/prottolk-investments/"
+              target="_blank"
+            >
+              <i class="bi bi-linkedin canvas_socials nav_socials"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'client:index' %}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'client:about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'client:services' %}">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'client:gallery' %}">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'client:contact' %}">Contact</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <a href="{% url 'client:contact' %}">
+          <button
+            class="btn carousel_btn carousel_btn_more px-md-3 py-md-2 mx-4"
+          >
+            Contact
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,64 @@
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  .details_image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .details_title {
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+</style>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="serviceModal{{data.id}}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <img
+          src="{{data.image.url}}"
+          class="details_image mb-5"
+          alt="Prottolk services"
+        />
+        <h3 class="details_title">{{data.title}}</h3>
+        {% if data.detailed_description %}
+        <p>{{data.detailed_description|safe}}</p>
+        {% else %}
+        <p>{{data.description}}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

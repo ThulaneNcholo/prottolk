@@ -1,0 +1,142 @@
+{% extends 'client/base.html' %}
+<!-- divider  -->
+{% load static %}
+<!-- divider  -->
+{% block content %}
+<style>
+  :root {
+    --primary-color: #ed1c24;
+    --secondary-color: #808285;
+    --sub-color: #000000;
+    --sub-titles: #cacaca;
+    --background-color: #e4eaff;
+    --secondary-background: #f7f9fa;
+  }
+
+  /* Gallery Images  */
+  .leading_image {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .secondary_images {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  @media screen and (max-width: 576px) {
+    /* Gallery Images  */
+    .leading_image {
+      height: 250px;
+    }
+
+    .secondary_images {
+      height: 120px;
+    }
+
+    .nav_logo {
+      width: 120px;
+    }
+
+    .carousel-item {
+      height: 50vh !important;
+    }
+
+    .hero_title {
+      font-size: 30px;
+      line-height: 35px;
+      font-weight: 700;
+    }
+
+    .carousel_sub {
+      font-size: 15px;
+    }
+
+    .titles {
+      font-size: 28px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ======= Heading  ======= -->
+<div class="container my-5">
+  <div class="text-center service_heading">
+    <h3 class="titles my-3">
+      Our
+      <span class="text_deco">Gallery</span>
+    </h3>
+  </div>
+</div>
+
+<!-- ======= Images  ======= -->
+{% for data in images %}
+<div class="container mb-5">
+  <div class="row mt-5">
+    <div class="col-12 col-md-12 col-lg-6 mb-4">
+      <div>
+        <img
+          src="{{data.imageHero.url}}"
+          alt="prottolk service images"
+          class="leading_image shadow shadow-sm"
+        />
+      </div>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+      <div class="row mb-3">
+        <div class="col">
+          <div>
+            <img
+              src="{{data.image1.url}}"
+              alt="prottolk service images"
+              class="secondary_images shadow shadow-sm"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <img
+              src="{{data.image2.url}}"
+              alt="prottolk service images"
+              class="secondary_images shadow shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- end col group -->
+      <div class="row">
+        <div class="col">
+          <div>
+            <img
+              src="{{data.image3.url}}"
+              alt="prottolk service images"
+              class="secondary_images shadow shadow-sm"
+            />
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <img
+              src="{{data.image4.url}}"
+              alt="prottolk service images"
+              class="secondary_images shadow shadow-sm"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- end col group -->
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- divider  -->
+{% endblock %}
